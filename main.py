@@ -115,7 +115,7 @@ def fetch_players_from_redis(level):
 def save_players_to_redis(level, players):
     expiration_time = 7 * 24 * 60 * 60  # 7 dias em segundos
     for player in players:
-        steam_id = player.get("steamId")
+        steam_id = player.get("id")
         if steam_id:
             redis_key = f"user:{level}:{steam_id}"
             redis_client.setex(redis_key, expiration_time, str(player))
