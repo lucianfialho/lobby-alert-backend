@@ -5,8 +5,10 @@ from dotenv import load_dotenv
 import pandas as pd
 from sklearn.ensemble import IsolationForest
 import concurrent.futures
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Habilita CORS para todas as rotas
 load_dotenv()
 
 # Configuração do cliente Redis
